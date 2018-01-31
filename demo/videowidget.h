@@ -23,7 +23,16 @@ class VideoWidget : public QOpenGLWidget
     void *init_data;
     void *extra_data;
 
+    QPoint *pt;
+    QPoint *pt_rear;
+
 public:
+    void set_points(QPoint *p1,QPoint *p2)
+    {
+            pt=p1;
+            pt_rear=p2;
+    }
+
     void set_init_data(void *d)
     {
         init_data=d;
@@ -87,6 +96,7 @@ protected:
             tick++;
             QPainter painter(this);
             paint_layout1(painter);
+            paint_layout_points(painter);
             //  paint_layout2(painter);
             //     paint_layout4(painter);
         }else{
@@ -150,6 +160,27 @@ protected:
         }
         //  painter.drawEllipse(500,500,50,50);
         //    painter.endNativePainting();
+
+    }
+    void paint_layout_points(QPainter &painter){
+        //  painter.beginNativePainting();
+        // makeCurrent();
+        QBrush red_brush_trans(QColor(0,0,200,100));
+        painter.setBrush(red_brush_trans);
+
+        for(int i=0;i<8;i++){
+            painter.drawLine(pt[i*2],pt[i*2+1]);
+       }
+
+
+      //  for(int i=0;i<8;i++){
+      //      painter.drawLine(pt[i*2],pt[i*2+1]);
+      // }
+
+        for(int i=0;i<8;i++){
+            painter.drawLine(pt_rear[i*2],pt_rear[i*2+1]);
+       }
+     //   painter.drawEllipse(pos_x%300,0,50,50);
 
     }
     void paint_layout4(QPainter &painter){

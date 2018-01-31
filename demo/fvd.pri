@@ -32,7 +32,7 @@ unix{
     INCLUDEPATH +="$$ALGPATH/include"
     message(alg  in $$ALGPATH/include)
     LIBS+=-L$$CVPATH/$$CV_PREFIX/lib -lopencv_core -lopencv_highgui \
-       -lopencv_objdetect -lopencv_imgproc -lopencv_ml   -lX11
+       -lopencv_objdetect -lopencv_imgproc -lopencv_ml   -lopencv_video  -lX11
 
     QMAKE_LIBS+=-lpthread
 }
@@ -43,10 +43,10 @@ win32{
     message(includepath:$$INCLUDEPATH)
     CONFIG(debug, debug|release){
         LIBS+=-L$$CVPATH\\$$CV_PREFIX\lib -lopencv_core249d -lopencv_highgui249d\
-        -lopencv_objdetect249d -lopencv_imgproc249d -lopencv_ml249d
+        -lopencv_objdetect249d -lopencv_imgproc249d -lopencv_ml249d  -lopencv_video249d
     }else{
         LIBS+=-L$$CVPATH\\$$CV_PREFIX\lib  -lopencv_core249 -lopencv_highgui249 \
-        -lopencv_objdetect249 -lopencv_imgproc249 -lopencv_ml249
+        -lopencv_objdetect249 -lopencv_imgproc249 -lopencv_ml249  -lopencv_video249
     }
 }
 
