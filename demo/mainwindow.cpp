@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 //    VideoWidget *w=new VideoWidget(this);
     //his->setCentralWidget(w);
-  //  v=new VideoThread("rtsp://192.168.1.216:8554/test1",ui->widget);
-    v=new VideoThread("test.mp4",ui->widget);
+    v=new VideoThread("rtsp://192.168.1.216:8554/test1",ui->widget);
+   //   v=new VideoThread("test.mp4",ui->widget);
     v->start();
 }
 
